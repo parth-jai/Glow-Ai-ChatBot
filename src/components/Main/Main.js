@@ -16,7 +16,7 @@ const Main = () => {
 
                 {!showResult?<>
                     <div className="great">
-                    <p><span>Hello, Parth</span></p>
+                    <p><span>Hello, Developers</span></p>
                     <p>How can I help you today</p>
                 </div>
                 <div className="cards">
@@ -45,7 +45,15 @@ const Main = () => {
                     </div>
                     <div className="result-data">
                         <img src={assets.gemini_icon} alt=""></img>
-                        <p dangerouslySetInnerHTML={{__html:resultData}}></p>
+                        {loading
+                        ?<div className="loader">
+                            <hr></hr>
+                            <hr></hr>
+                            <hr></hr>
+                        </div>
+                    :<p dangerouslySetInnerHTML={{__html:resultData}}></p>
+                    }
+                        
                     </div>
                 </div>
                 }
@@ -59,7 +67,7 @@ const Main = () => {
                         <div>
                             <img src={assets.gallery_icon} alt=""></img>
                             <img src={assets.mic_icon} alt=""></img>
-                            <img onClick={()=>onSent()} src={assets.send_icon} alt=""></img>
+                            {input?<img onClick={()=>onSent()} src={assets.send_icon} alt=""></img>:null}
                         </div>
                     </div>
                     <p className="bottom-info">
